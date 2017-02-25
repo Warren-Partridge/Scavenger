@@ -15,10 +15,11 @@ params = urllib.parse.urlencode({
 
 try:
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/vision/v1.0/analyze?%s" % params, "{body}", headers)
+    conn.request("POST", "/vision/v1.0/analyze?%s" % params, '{"url":"https://www.what-dog.net/Images/faces2/scroll0015.jpg"}', headers)
     response = conn.getresponse()
     data = response.read()
     print(data)
     conn.close()
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
+
