@@ -40,8 +40,21 @@ def getObjective(afile):
 
 
 def main():
-    print(getObjective("objectives.txt"))
-    imageRec("https://www.what-dog.net/Images/faces2/scroll0015.jpg")
-
+    print("Welcome to Scavenger! You have 0 points right now. Go take a picture of a " +\
+          getObjective("objectives.txt") + " to get your first point.")
+    #imageRec("https://www.what-dog.net/Images/faces2/scroll0015.jpg")
+    while True:
+        i = input() # hacky way of waiting for user interaction
+        # TODO: Snap a picture
+        print("Snap! Pretend that I took a picture there")
+        # TODO: Check if that picture matches the thing
+        # If yes:
+            # Award points
+            # List current points
+            # Maybe change objective?
+        # If no:
+            # Tell user what it thinks your picture is (print description text)
+            # Continue looping
+            
 
 main()
