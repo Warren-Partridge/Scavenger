@@ -25,7 +25,7 @@ def take():
     msg = 'Picture is going to be taken' 
     takePicture()
     imageRecData = imageRec(None)
-    if(checkIfPlayerIsGoodAtVideoGames(imageRecData[1], currentObjective) == True):
+    if(checkIfPlayerIsGoodAtVideoGames(imageRecData[1], currentObjective) == False):
         points += 1
         msg = "Nice " + currentObjective + " pic! Quality photography. " +\
             "You got 1 point, making your new score " + str(points) + "."
