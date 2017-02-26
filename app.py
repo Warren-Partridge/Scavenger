@@ -11,7 +11,7 @@ points = 0
 def index():
     print(currentObjective)
     print(str(currentObjective))
-    msg = "Welcome to Scavenger! You have " + points + " points right now. Go take a picture of a " +\
+    msg = "Welcome to Scavenger! You have " + str(points) + " points right now. Go take a picture of a " +\
           str(currentObjective) + " to get your first point."
 
     return '<html>'+msg+'<br><a href="/take">Take picture!</a>'
