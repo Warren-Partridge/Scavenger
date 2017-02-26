@@ -43,14 +43,20 @@ def imageRec(url):
         print("");
         print(data_json_tags)
         conn.close()
+
+        return data_json_descriptiontext, data_json_tags
     except Exception as e:
         print (e)
         print("[Errno {0}] {1}".format(e.errno, e.strerror))
-    return data_json_tags 
+    
 
 def getObjective(afile):
     return random.choice(list(open(afile)))
 
+def checkIfPlayerIsGoodAtVideoGames(tags, objective):
+    if(objective in tags):
+        return True
+    return False
 
 def main2():
     print("Welcome to Scavenger! You have 0 points right now. Go take a picture of a " +\
