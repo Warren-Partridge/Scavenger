@@ -32,7 +32,7 @@ def take():
         msg = "Nice " + currentObjective + " pic! Quality photography. " +\
             "You got 1 point, making your new score " + str(points) + "."
         currentObjective = getObjective("objectives.txt")
-        msg += "Now find something new; take a picture of a " + currentObjective + "!"
+        msg += " Now find something new; take a picture of a " + currentObjective + "."
     elif(failCount > 2):
         currentObjective = getObjective("objectives.txt")
         failCount = 0
@@ -40,7 +40,7 @@ def take():
             "Here, I'll give you a new item: take a picture of a " + currentObjective + "."
     else:
         msg = "Hmm, that doesn't look like a " + currentObjective + " to me. " +\
-            "I see " + imageRecData[0] + ". Your current score is " + str(points)
+            "I see " + imageRecData[0] + ". Your current score is " + str(points) + "."
         failCount += 1
 
         
