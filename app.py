@@ -4,9 +4,13 @@ from camera import takePicture
 
 app = Flask(__name__)
 
+currentObjective = getObjective("objectives.txt")
+points = 0
 
 @app.route('/')
 def index():
+    global currentObjective
+    global points
     print(currentObjective)
     print(str(currentObjective))
     msg = "Welcome to Scavenger! You have " + str(points) + " points right now. Go take a picture of a " +\
@@ -30,7 +34,3 @@ def take():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
-    global currentObjective
-    global points
-    currentObjective = getObjective("objectives.txt")
-    points = 0
