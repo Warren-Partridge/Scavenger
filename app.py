@@ -20,6 +20,8 @@ def index():
 
 @app.route('/take')
 def take():
+    global currentObjective
+    global points
     msg = 'Picture is going to be taken' 
     takePicture()
     imageRecData = imageRec(None)
