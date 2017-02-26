@@ -1,7 +1,15 @@
 water bottle
-dog
-bench
 chair
-laptop
+computer
 table
-
+food
+door
+phone
+keyboard
+mouse
+cable
+person
+woman
+man
+shoe
+glasses
