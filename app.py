@@ -4,8 +4,8 @@ from camera import takePicture
 
 app = Flask(__name__)
 
-currentObjective = getObjective("objectives.txt")
-points = 0
+global currentObjective = getObjective("objectives.txt")
+global points = 0
 
 @app.route('/')
 def index():
