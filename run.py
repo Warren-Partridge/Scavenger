@@ -51,7 +51,7 @@ def imageRec(url):
     
 
 def getObjective(afile):
-    return random.choice(list(open(afile)))
+    return random.choice(list(open(afile))).rstrip()
 
 def checkIfPlayerIsGoodAtVideoGames(tags, objective):
     if(objective in tags):
