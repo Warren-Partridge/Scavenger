@@ -4,7 +4,7 @@ from camera import takePicture
 
 app = Flask(__name__)
 
-currentObjective = getObjective("/home/pi/Desktop/Scavenger/objectives.txt")
+currentObjective = getObjective("objectives.txt")
 points = 0
 
 @app.route('/')
