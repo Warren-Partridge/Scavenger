@@ -9,8 +9,10 @@ points = 0
 
 @app.route('/')
 def index():
-    msg = "Welcome to Scavenger! You have " + points + " points right now. Go take a picture of a " +
+    msg = "Welcome to Scavenger! You have " + points + " points right now. Go take a picture of a " +\
           str(currentObjective) + " to get your first point."
+    print(currentObjective)
+    print(str(currentObjective))
     return '<html>'+msg+'<br><a href="/take">Take picture!</a>'
 
 @app.route('/take')
