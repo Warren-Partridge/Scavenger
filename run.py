@@ -1,4 +1,5 @@
 import http.client, urllib.request, urllib.parse, urllib.error, base64
+import camera
 import json
 import random
 
@@ -30,33 +31,49 @@ def imageRec():
         data_json_tags = data_json["description"]["tags"]
         data_json_descriptiontext = data_json["description"]["captions"][0]["text"]
 
-        print(data_json_descriptiontext)
-        print("");
-        print(data_json_tags)
+        #print(data_json_descriptiontext)
+        #print("");
+        #print(data_json_tags)
         conn.close()
+        return data_json_descriptiontext, data_json_tags
     except Exception as e:
         print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 def getObjective(afile):
-    return random.choice(list(open(afile)))
+    return random.choice(list(open(afile))).rstrip()
 
+def checkIfPlayerIsGoodAtVideoGames(tags, objective):
+    if(objective in tags):
+        return True
+    return False
 
 def main():
+    currentObjective = getObjective("objectives.txt")
     print("Welcome to Scavenger! You have 0 points right now. Go take a picture of a " +\
-          getObjective("objectives.txt") + " to get your first point.")
-    imageRec()
+          currentObjective + " to get your first point.")
+    points = 0;
+    failCount = 0;
     while True:
         i = input() # hacky way of waiting for user interaction
-        # TODO: Snap a picture
-        print("Snap! Pretend that I took a picture there")
-        # TODO: Check if that picture matches the thing
-        # If yes:
-            # Award points
-            # List current points
-            # Maybe change objective?
-        # If no:
-            # Tell user what it thinks your picture is (print description text)
+        camera.takePicture()
+        imageRecData = imageRec()
+        
+        if(checkIfPlayerIsGoodAtVideoGames(imageRecData[1], currentObjective) == True):
+            points+= 1
+            print("Nice " + currentObjective + " pic! Quality photography. " +\
+                  "You got 1 point, making your new score " + str(points) + ".")
+            currentObjective = getObjective("objectives.txt")
+            print("Now find something new; take a picture of a " + currentObjective + "!")
+        elif(failCount > 2):
+            currentObjective = getObjective("objectives.txt")
+            failCount = 0
+            print("That just looks like " + imageRecData[0] + " to me. " +\
+                  "Here, I'll give you a new item: take a picture of a " + currentObjective + "!")
+        else:
+            print("Hmm, that doesn't look like a " + currentObjective + " to me. " +\
+                  "I see " + imageRecData[0] + ".")
+            failCount+= 1
             # Continue looping
-            
+
 
 main()
