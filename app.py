@@ -37,10 +37,10 @@ def take():
         currentObjective = getObjective("objectives.txt")
         failCount = 0
         msg = "That just looks like " + imageRecData[0] + " to me. " +\
-            "Here, I'll give you a new item: take a picture of a " + currentObjective + "!"
+            "Here, I'll give you a new item: take a picture of a " + currentObjective + "."
     else:
         msg = "Hmm, that doesn't look like a " + currentObjective + " to me. " +\
-            "I see " + imageRecData[0] + "."
+            "I see " + imageRecData[0] + ". Your current score is " + str(points)
         failCount += 1
 
         
